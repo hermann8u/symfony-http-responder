@@ -165,7 +165,7 @@ abstract class ResponderTestCase extends TestCase
             ->withLink('href3', ['rel'], ['a' => true, 'b', 'c' => 'foo bar', 'd' => false, 'e' => 'boo', 'f' => 'f']));
 
         $reflectionMethod = new \ReflectionMethod($response->headers, 'all');
-        $actual = $reflectionMethod->getNumberOfParameters() === 1
+        $actual = 1 === $reflectionMethod->getNumberOfParameters()
             ? $response->headers->all('link')
             : $response->headers->get('link', null, false);
 
