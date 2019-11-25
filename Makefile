@@ -33,7 +33,7 @@ phpunit-coverage:
 	${qa} phpdbg -qrr /tools/simple-phpunit ${phpunit_args} --coverage-clover=var/coverage.xml
 phpunit-pull:
 	rm -rf var/phpunit
-	${qa} sh -c "cp -RL /tools/.composer/vendor-bin/symfony/vendor/bin/.phpunit/phpunit-${PHPUNIT} var/phpunit"
+	${qa} sh -c "cp -RL /tools/.composer/vendor-bin/symfony/vendor/bin/.phpunit/phpunit-${PHPUNIT}-0 var/phpunit"
 
 # code style
 cs:
