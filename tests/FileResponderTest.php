@@ -136,7 +136,7 @@ final class FileResponderTest extends ResponderTestCase
     }
 
     /**
-     * @psalm-suppress MoreSpecificReturnType
+     * @psalm-suppress InvalidReturnType
      */
     protected function getResponds(): iterable
     {

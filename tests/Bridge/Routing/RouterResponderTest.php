@@ -70,7 +70,7 @@ final class RouterResponderTest extends ResponderTestCase
     }
 
     /**
-     * @psalm-suppress MoreSpecificReturnType
+     * @psalm-suppress InvalidReturnType
      */
     protected function getResponds(): iterable
     {
