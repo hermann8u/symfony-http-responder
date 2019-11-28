@@ -55,6 +55,9 @@ final class OuterResponderTest extends ResponderTestCase
         }, $this->getFlashBag());
     }
 
+    /**
+     * @psalm-suppress MoreSpecificReturnType
+     */
     protected function getResponds(): iterable
     {
         yield $this->createMock(Respond::class);

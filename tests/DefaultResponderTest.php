@@ -72,6 +72,9 @@ final class DefaultResponderTest extends ResponderTestCase
         return new DefaultResponder();
     }
 
+    /**
+     * @psalm-suppress MoreSpecificReturnType
+     */
     protected function getResponds(): iterable
     {
         yield new Raw('contents');

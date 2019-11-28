@@ -37,6 +37,9 @@ final class ChainResponderTest extends ResponderTestCase
         ]);
     }
 
+    /**
+     * @psalm-suppress MoreSpecificReturnType
+     */
     protected function getResponds(): iterable
     {
         yield new TestRespondA();
