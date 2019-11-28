@@ -222,6 +222,8 @@ abstract class ResponderTestCase extends TestCase
 
     /**
      * @return iterable<int, Respond>
+     *
+     * @psalm-suppress MoreSpecificReturnType
      */
     abstract protected function getResponds(): iterable;
 
