@@ -10,6 +10,9 @@ use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
 
+/**
+ * @psalm-suppress UnusedClass
+ */
 final class RespondListener
 {
     /** @var Responder */
@@ -22,6 +25,9 @@ final class RespondListener
 
     /**
      * @param GetResponseForControllerResultEvent|ViewEvent $event
+     *
+     * @psalm-suppress UndefinedDocblockClass
+     * @psalm-suppress MismatchingDocblockParamType
      */
     public function onKernelView(RequestEvent $event): void
     {
