@@ -41,9 +41,6 @@ final class RespondListener implements EventSubscriberInterface
         $event->setResponse($this->responder->respond($controllerResult));
     }
 
-    /**
-     * @inheritDoc
-     */
     public static function getSubscribedEvents(): array
     {
         return [
