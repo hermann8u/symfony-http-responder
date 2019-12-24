@@ -6,14 +6,16 @@ namespace ro0NL\HttpResponder\Bundle\EventListener;
 
 use ro0NL\HttpResponder\Respond\Respond;
 use ro0NL\HttpResponder\Responder;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
-use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\HttpKernel\Event\KernelEvent;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
- * @psalm-suppress UnusedClass
+ * @internal
  */
-final class RespondListener
+final class RespondListener implements EventSubscriberInterface
 {
     /** @var Responder */
     private $responder;
@@ -29,7 +31,7 @@ final class RespondListener
      * @psalm-suppress UndefinedDocblockClass
      * @psalm-suppress MismatchingDocblockParamType
      */
-    public function onKernelView(RequestEvent $event): void
+    public function onKernelView(KernelEvent $event): void
     {
         $controllerResult = $event->getControllerResult();
         if (!$controllerResult instanceof Respond) {
@@ -37,5 +39,17 @@ final class RespondListener
         }
 
         $event->setResponse($this->responder->respond($controllerResult));
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            KernelEvents::VIEW => [
+                ['onKernelView'],
+            ],
+        ];
     }
 }
