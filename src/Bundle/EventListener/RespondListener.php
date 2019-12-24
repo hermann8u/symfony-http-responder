@@ -14,6 +14,8 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
  * @internal
+ *
+ * @psalm-suppress UnusedClass
  */
 final class RespondListener implements EventSubscriberInterface
 {
